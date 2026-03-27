@@ -1,58 +1,47 @@
 [config]
-name = "macOS Tray"
+name = "macOS Dock + Window Management"
 
 [config.js]
 module = '''
-import buildTrayHandler from 'dist/tray.js';
-export default buildTrayHandler();
+import buildMenuHandler from '#js/vendor/@keychords/chords-menu/js/menu.js';
+import buildDockHandler from '#js/dock.js';
+export const menu = buildMenuHandler();
+export const dock = buildDockHandler();
 '''
 
 [chords]
-'?=' = { name = "Tray" }
-# '=0' = { name = "Tray: Notch", 'args:notch' = [] }
-'=1' = { name = "Tray: 1st Item", args = [0] }
-'=2' = { name = "Tray: 2nd Item", args = [1] }
-'=3' = { name = "Tray: 3rd Item", args = [2] }
-'=4' = { name = "Tray: 4th Item", args = [3] }
-'=5' = { name = "Tray: 5th Item", args = [4] }
-'=6' = { name = "Tray: 6th Item", args = [5] }
-'=7' = { name = "Tray: 7th Item", args = [6] }
-'=8' = { name = "Tray: 8th Item", args = [7] }
-'=9' = { name = "Tray: 9th Item", args = [8] }
+# Built-in macOS window management shortcuts
+# Can be overriden if using a dedicated window manager such as yabai, Aerospace, etc.
+'?.' = { name = "Dock / Window Management" }
 
-'?=-' = { name = "Tray: From End" }
-'=-1' = { name = "Tray: 1st End Item", args = [-1] }
-'=-2' = { name = "Tray: 2nd End Item", args = [-2] }
-'=-3' = { name = "Tray: 3rd End Item", args = [-3] }
-'=-4' = { name = "Tray: 4th End Item", args = [-4] }
-'=-5' = { name = "Tray: 5th End Item", args = [-5] }
-'=-6' = { name = "Tray: 6th End Item", args = [-6] }
-'=-7' = { name = "Tray: 7th End Item", args = [-7] }
-'=-8' = { name = "Tray: 8th End Item", args = [-8] }
-'=-9' = { name = "Tray: 9th End Item", args = [-9] }
-'=1/' = { name = "Tray: 1st Item Right Click", args = [0, 'right'] }
-'=2/' = { name = "Tray: 2nd Item Right Click", args = [1, 'right'] }
-'=3/' = { name = "Tray: 3rd Item Right Click", args = [2, 'right'] }
-'=4/' = { name = "Tray: 4th Item Right Click", args = [3, 'right'] }
-'=5/' = { name = "Tray: 5th Item Right Click", args = [4, 'right'] }
-'=6/' = { name = "Tray: 6th Item Right Click", args = [5, 'right'] }
-'=7/' = { name = "Tray: 7th Item Right Click", args = [6, 'right'] }
-'=8/' = { name = "Tray: 8th Item Right Click", args = [7, 'right'] }
-'=9/' = { name = "Tray: 9th Item Right Click", args = [8, 'right'] }
-'=-1/' = { name = "Tray: 1st End Item Right Click", args = [-1, 'right'] }
-'=-2/' = { name = "Tray: 2nd End Item Right Click", args = [-2, 'right'] }
-'=-3/' = { name = "Tray: 3rd End Item Right Click", args = [-3, 'right'] }
-'=-4/' = { name = "Tray: 4th End Item Right Click", args = [-4, 'right'] }
-'=-5/' = { name = "Tray: 5th End Item Right Click", args = [-5, 'right'] }
-'=-6/' = { name = "Tray: 6th End Item Right Click", args = [-6, 'right'] }
-'=-7/' = { name = "Tray: 7th End Item Right Click", args = [-7, 'right'] }
-'=-8/' = { name = "Tray: 8th End Item Right Click", args = [-8, 'right'] }
-'=-9/' = { name = "Tray: 9th End Item Right Click", args = [-9, 'right'] }
+# Move and Resize
+'.l' = { name = "Left", shortcut = "ctrl+fn+left" }
+'.r' = { name = "Right", shortcut = "ctrl+fn+right" }
+'.t' = { name = "Top", shortcut = "ctrl+fn+up" }
+'.b' = { name = "Bottom", shortcut = "ctrl+fn+down" }
+'.tl' = { name = "Top Left", 'args:menu' = ["Window", "Move & Resize", "Top Left"] }
+'.tr' = { name = "Top Right", 'args:menu' = ["Window", "Move & Resize", "Top Right"] }
+'.bl' = { name = "Bottom Left", 'args:menu' = ["Window", "Move & Resize", "Bottom Left"] }
+'.br' = { name = "Bottom Right", 'args:menu' = ["Window", "Move & Resize", "Bottom Right"] }
+'.lr' = { name = "Left Right", shortcut = "ctrl+fn+shift+left" }
+'.rl' = { name = "Right Left", shortcut = "ctrl+fn+shift+right" }
+'.tb' = { name = "Top Bottom", shortcut = "ctrl+fn+shift+up" }
+'.bt' = { name = "Bottom Top", shortcut = "ctrl+fn+shift+down" }
+'.q' = { name = "Quarters", 'args:menu' = ["Window", "Move & Resize", "Quarters"] }
+'.s[' = { name = "Size: Previous", shortcut = "ctrl+fn+r" }
 
-'=b' = { name = "Tray: Battery" }
-'=c' = { name = "Tray: Control Center" }
-'=t' = { name = "Tray: Time & Date" }
+'.m' = { name = "Minimize", shortcut = "cmd+m" }
+'.z' = { name = "Zoom", 'args:menu' = ["Window", 'Zoom'] }
+'.f' = { name = "Fill", shortcut = "ctrl+fn+f" }
+'.c' = { name = "Center", shortcut = "ctrl+fn+c" }
+'.fl' = { name = "Fullscreen Left", 'args:menu' = ["Window", "Full Screen Tile", "Left of Screen"] }
+'.fr' = { name = "Fullscreen Right", 'args:menu' = ["Window", "Full Screen Tile", "Right of Screen"] }
+'.a' = { name = "All to Front", 'args:menu' = ["Window", "Bring All to Front"] }
+'.[' = { name = "Previous Window" }
+'.]' = { name = "Next Window" }
 
-'?=w' = { name = "Tray Wi-Fi" }
-'=w' = { name = "Tray: Wi-Fi" }
-'=wv' = { name = "Tray Wi-Fi: Vary On/Off" }
+# Dock
+'.v' = { name = "Dock: Vary On/Off", shortcut = "ctrl+f3" }
+'.(\d+)' = { name = "Dock Item $1: Focus", 'args:dock' = ['$1'] }
+'.(\d+),' = { name = "Dock Item $1: Left Click", 'args:dock' = ['$1'] }
+'.(\d+)/' = { name = "Dock Item $1: Right Click", 'args:dock' = ['$1', 'right'] }
