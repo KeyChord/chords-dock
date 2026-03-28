@@ -1,7 +1,7 @@
-import { tap } from 'chord';
+import { tap } from "chord";
 
 export default function buildDockHandler() {
   return function dock(index: number) {
-    tap('ctrl+f3');
-  }
+    tap("ctrl+f3");
+  };
 }

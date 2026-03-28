@@ -1,9 +1,5 @@
-import keychord from '@keychord/vite-plugin';
+import { config } from "@keychord/config";
 
-export default {
-  plugins: [keychord({
-    vendor: [
-      '@keychord/chords-menu'
-    ]
-  })]
-}
+export default config({
+  vendor: ["@keychord/chords-menu"]
+});
