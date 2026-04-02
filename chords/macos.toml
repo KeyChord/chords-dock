@@ -1,9 +1,9 @@
 name = "macOS Dock + Window Management"
 
-[handlers.menu]
+[on.menu]
 file = '@keychord/chords-menu/js/menu.js'
 
-[handlers.dock]
+[on.dock]
 file = 'dock.js'
 
 [chords]
