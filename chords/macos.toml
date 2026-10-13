@@ -12,37 +12,47 @@ file = 'dock.js'
 '?.' = { name = "Dock / Window Management" }
 
 # Move and Resize
-'.l' = { name = "Left", shortcut = "ctrl+fn+left" }
-'.r' = { name = "Right", shortcut = "ctrl+fn+right" }
-'.t' = { name = "Top", shortcut = "ctrl+fn+up" }
-'.b' = { name = "Bottom", shortcut = "ctrl+fn+down" }
-'.tl' = { name = "Top Left", 'emit:menu' = ["Window", "Move & Resize", "Top Left"] }
-'.tr' = { name = "Top Right", 'emit:menu' = ["Window", "Move & Resize", "Top Right"] }
-'.bl' = { name = "Bottom Left", 'emit:menu' = ["Window", "Move & Resize", "Bottom Left"] }
-'.br' = { name = "Bottom Right", 'emit:menu' = ["Window", "Move & Resize", "Bottom Right"] }
-'.lr' = { name = "Left Right", shortcut = "ctrl+fn+shift+left" }
-'.rl' = { name = "Right Left", shortcut = "ctrl+fn+shift+right" }
-'.tb' = { name = "Top Bottom", shortcut = "ctrl+fn+shift+up" }
-'.bt' = { name = "Bottom Top", shortcut = "ctrl+fn+shift+down" }
-'.q' = { name = "Quarters", 'emit:menu' = ["Window", "Move & Resize", "Quarters"] }
+'.ml' = { name = "Move: Left", shortcut = "ctrl+fn+left" }
+'.mr' = { name = "Move: Right", shortcut = "ctrl+fn+right" }
+'.mt' = { name = "Move: Top", shortcut = "ctrl+fn+up" }
+'.mb' = { name = "Move: Bottom", shortcut = "ctrl+fn+down" }
+'.mtl' = { name = "Move: Top Left", '@input:menu' = ["Window", "Move & Resize", "Top Left"] }
+'.mtr' = { name = "Move: Top Right", '@input:menu' = ["Window", "Move & Resize", "Top Right"] }
+'.mbl' = { name = "Move: Bottom Left", '@input:menu' = ["Window", "Move & Resize", "Bottom Left"] }
+'.mbr' = { name = "Move: Bottom Right", '@input:menu' = [
+  "Window",
+  "Move & Resize",
+  "Bottom Right",
+] }
+'.mlr' = { name = "Move: Left Right", shortcut = "ctrl+fn+shift+left" }
+'.mrl' = { name = "Move: Right Left", shortcut = "ctrl+fn+shift+right" }
+'.mtb' = { name = "Move: Top Bottom", shortcut = "ctrl+fn+shift+up" }
+'.mbt' = { name = "Move: Bottom Top", shortcut = "ctrl+fn+shift+down" }
+'.mq' = { name = "Move: Quarters", '@input:menu' = ["Window", "Move & Resize", "Quarters"] }
+
 '.s[' = { name = "Size: Previous", shortcut = "ctrl+fn+r" }
 
 '.m' = { name = "Minimize", shortcut = "cmd+m" }
-'.z' = { name = "Zoom", 'emit:menu' = ["Window", 'Zoom'] }
+'.q' = { name = "Quit", shortcut = "cmd+q" }
+'.z' = { name = "Zoom", '@input:menu' = ["Window", 'Zoom'] }
 '.f' = { name = "Fill", shortcut = "ctrl+fn+f" }
 '.c' = { name = "Center", shortcut = "ctrl+fn+c" }
-'.fl' = { name = "Fullscreen Left", 'emit:menu' = ["Window", "Full Screen Tile", "Left of Screen"] }
-'.fr' = { name = "Fullscreen Right", 'emit:menu' = [
+'.fl' = { name = "Fullscreen Left", '@input:menu' = [
+  "Window",
+  "Full Screen Tile",
+  "Left of Screen",
+] }
+'.fr' = { name = "Fullscreen Right", '@input:menu' = [
   "Window",
   "Full Screen Tile",
   "Right of Screen",
 ] }
-'.a' = { name = "All to Front", 'emit:menu' = ["Window", "Bring All to Front"] }
+'.a' = { name = "All to Front", '@input:menu' = ["Window", "Bring All to Front"] }
 '.[' = { name = "Previous Window" }
 '.]' = { name = "Next Window" }
 
 # Dock
 '.v' = { name = "Dock: Vary On/Off", shortcut = "ctrl+f3" }
-'.(\d+)' = { name = "Dock Item $1: Focus", 'emit:dock' = ['$1'] }
-'.(\d+),' = { name = "Dock Item $1: Left Click", 'emit:dock' = ['$1'] }
-'.(\d+)/' = { name = "Dock Item $1: Right Click", 'emit:dock' = ['$1', 'right'] }
+'.(\d+)' = { name = "Dock Item $1: Focus", '@input:dock' = ['$1'] }
+'.(\d+),' = { name = "Dock Item $1: Left Click", '@input:dock' = ['$1'] }
+'.(\d+)/' = { name = "Dock Item $1: Right Click", '@input:dock' = ['$1', 'right'] }
