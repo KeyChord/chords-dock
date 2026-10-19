@@ -1,0 +1,19 @@
+{
+  "name": "@keychord/chords-dock",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KeyChord/chords-dock"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "bun test --isolate"
+  },
+  "devDependencies": {
+    "@keychord/chords-menu": "workspace:*",
+    "@keychord/chordtest": "workspace:*",
+    "@keychord/config": "catalog:",
+    "@keychord/tsconfig": "catalog:",
+    "@types/bun": "latest"
+  },
+  "packageManager": "pnpm@12.11.2"
+}
